@@ -33,7 +33,7 @@ package com.example.opgg.data.summoner
  *  }
  *}
  */
-class Genetory {
+public class Genetory {
     data class Genetory(
         val summoner: SummonerInfo
     )
@@ -44,11 +44,11 @@ class Genetory {
         val profileImageUrl: String,
         val profileBorderImageUrl: String,
         val url: String,
-        val leagues: List<Leagues>,
+        val leagues: List<League>,
         val profileBackgroundImageUrl: String
     )
 
-    data class Leagues(
+    public data class League(
         val hasResult: Boolean,
         val wins: Int,
         val losses: Int,
