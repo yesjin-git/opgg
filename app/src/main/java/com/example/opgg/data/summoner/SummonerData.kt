@@ -169,7 +169,7 @@ class MatchData {
         val items: List<Item>,
         val needRenew: Boolean,
         val gameId: String,
-        val createDate: Int,
+        val createDate: Long,
         val gameLength: Int,
         val gameType: String,
         val summonerId: String,

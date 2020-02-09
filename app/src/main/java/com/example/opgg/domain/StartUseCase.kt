@@ -1,5 +1,7 @@
 package com.example.opgg.domain
 
+import com.example.opgg.common.roundUp
+import com.example.opgg.common.timePassed
 import com.example.opgg.data.summoner.Gene
 import com.example.opgg.data.summoner.MatchData
 import com.example.opgg.data.summoner.SummonerRepository
@@ -30,16 +32,27 @@ class StartUseCase @Inject constructor(
                 )
 
                 val analysis = analyseRecentMatches(match)
-//                val history = MainViewModel.History()
+                val history = match.games.map {
+                    MainViewModel.History(
+                        it.isWin,
+                        it.champion.imageUrl,
+                        "${it.stats.general.kill} / ${it.stats.general.deaths} / ${it.stats.general.assist}",
+                        "킬관여 ${it.stats.general.contributionForKillRate}",
+                        it.stats.general.opScoreBadge,
+                        it.items.map { item -> item.imageUrl },
+                        it.gameType,
+                        timePassed(it.createDate)
+                    )
+                }
 
-                Result.Error<Entity>(java.lang.Exception())
+                Result.Success(Entity(header, analysis, history))
             }
         } catch (e: Exception) {
             Result.Error(e)
         }
     }
 
-    private fun analyseRecentMatches(match: MatchData.Match): MainViewModel.Analysis? {
+    private fun analyseRecentMatches(match: MatchData.Match): MainViewModel.Analysis {
         val games = match.games
         val history = if (games.size > 20) games.subList(0, 20) else games
         val total = history.size.toDouble()
@@ -72,14 +85,10 @@ class StartUseCase @Inject constructor(
         )
     }
 
-    private fun Double.roundUp(pointer: Int = 1): Double {
-        return (this * 10 * pointer).roundToInt().toDouble() / (10 * pointer)
-    }
-
     data class Entity(
         val header: MainViewModel.Header,
         val analysis: MainViewModel.Analysis,
-        val history: MainViewModel.History
+        val history: List<MainViewModel.History>
     )
 }
 

@@ -22,8 +22,8 @@ class MainViewModel @Inject constructor(
     private val _analysis = MutableLiveData<Analysis>()
     val analysis: LiveData<Analysis> = _analysis
 
-    private val _history = MutableLiveData<History>()
-    val history: LiveData<History> = _history
+    private val _history = MutableLiveData<List<History>>()
+    val history: LiveData<List<History>> = _history
 
     init {
         viewModelScope.launch {
