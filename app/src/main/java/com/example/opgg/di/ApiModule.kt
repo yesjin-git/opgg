@@ -1,5 +1,6 @@
 package com.example.opgg.di
 
+import com.example.opgg.common.BASE_URL
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -16,7 +17,7 @@ class ApiModule{
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit {
-        val gson = GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+        val gson = GsonBuilder().create()
         val client = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
@@ -25,7 +26,7 @@ class ApiModule{
         return Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl("test")
+            .baseUrl(BASE_URL)
             .build()
     }
 }
