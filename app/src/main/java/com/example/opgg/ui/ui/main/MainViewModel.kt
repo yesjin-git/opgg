@@ -11,6 +11,6 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     init {
         startUseCase()
-
     }
+
 }
