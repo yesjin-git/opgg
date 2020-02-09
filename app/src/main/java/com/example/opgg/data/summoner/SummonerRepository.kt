@@ -13,12 +13,12 @@ class DefaultSummonerRepository @Inject constructor(
         return remoteSource.getGenetory()
     }
 
-    override suspend fun getMatches(lastMatch: Int): MatchData.Match {
+    override suspend fun getMatches(lastMatch: Int?): MatchData.Match {
         return remoteSource.getMatches(lastMatch)
     }
 }
 
 interface SummonerRepository {
     suspend fun getGenetory(): Genetory
-    suspend fun getMatches(lastMatch: Int): MatchData.Match
+    suspend fun getMatches(lastMatch: Int?): MatchData.Match
 }

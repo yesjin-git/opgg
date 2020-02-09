@@ -33,7 +33,7 @@ class ApiTest {
     @Test
     fun fetch_match_data(){
         runBlocking {
-            val res = service.getMatches(1571654692)
+            val res = service.getMatches(null)
             print(res)
             Assert.assertNotNull(res)
         }
