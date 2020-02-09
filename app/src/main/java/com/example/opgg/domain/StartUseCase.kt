@@ -1,12 +1,15 @@
 package com.example.opgg.domain
 
+import com.example.opgg.data.summoner.Gene
+import com.example.opgg.data.summoner.MatchData
 import com.example.opgg.data.summoner.SummonerRepository
+import com.example.opgg.ui.ui.main.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 import javax.inject.Inject
+import kotlin.Exception
+import kotlin.math.roundToInt
 
 class StartUseCase @Inject constructor(
     val repository: SummonerRepository
@@ -14,17 +17,69 @@ class StartUseCase @Inject constructor(
     suspend operator fun invoke(): Result<Entity> {
         return try {
             withContext(Dispatchers.IO) {
-                val genetory = launch(Dispatchers.IO) { repository.getGenetory() }
-                val match = launch { repository.getMatches(0) }
-                Result.Success(Entity(""))
+                val genetoryCall = async { repository.getGenetory() }
+                val matchCall = async { repository.getMatches(null) }
+
+                val genetory: Gene.Genetory = genetoryCall.await()
+                val match: MatchData.Match = matchCall.await()
+                val header = MainViewModel.Header(
+                    genetory.summoner.name,
+                    genetory.summoner.level.toString(),
+                    genetory.summoner.profileImageUrl,
+                    genetory.summoner.leagues
+                )
+
+                val analysis = analyseRecentMatches(match)
+//                val history = MainViewModel.History()
+
+                Result.Error<Entity>(java.lang.Exception())
             }
         } catch (e: Exception) {
             Result.Error(e)
         }
     }
 
+    private fun analyseRecentMatches(match: MatchData.Match): MainViewModel.Analysis? {
+        val games = match.games
+        val history = if (games.size > 20) games.subList(0, 20) else games
+        val total = history.size.toDouble()
+
+        var win: Int = 0
+        var lose: Int = 0
+        var kill: Int = 0
+        var death: Int = 0
+        var assist: Int = 0
+        history.forEach {
+            if (it.isWin) win++ else lose++
+            kill += it.stats.general.kill
+            death += it.stats.general.deaths
+            assist += it.stats.general.assist
+        }
+
+        val winRate: Int = (win / total * 100).roundToInt()
+        val avgKill = (kill / total).roundUp()
+        val avgDeath = (death / total).roundUp()
+        val avgAssist = (assist / total).roundUp()
+        val kdaSummary = ((kill + assist) / death.toDouble()).roundUp(2)
+
+
+        return MainViewModel.Analysis(
+            "${win}승 ${lose}패",
+            "$avgKill / $avgDeath / $avgAssist",
+            "$kdaSummary (${winRate}%)",
+            match.champions,
+            match.positions
+        )
+    }
+
+    private fun Double.roundUp(pointer: Int = 1): Double {
+        return (this * 10 * pointer).roundToInt().toDouble() / (10 * pointer)
+    }
+
     data class Entity(
-        val result: String
+        val header: MainViewModel.Header,
+        val analysis: MainViewModel.Analysis,
+        val history: MainViewModel.History
     )
 }
 
