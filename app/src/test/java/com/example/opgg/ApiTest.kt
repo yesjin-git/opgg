@@ -23,7 +23,7 @@ class ApiTest {
     @Test
     fun fetch_summoner_data(){
         runBlocking {
-            val res = service.getSummonerGenetory()
+            val res = service.getGenetory()
             print(res)
             Assert.assertNotNull(res)
         }
