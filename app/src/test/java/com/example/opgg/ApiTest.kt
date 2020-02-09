@@ -34,7 +34,7 @@ class ApiTest {
     fun fetch_match_data(){
         runBlocking {
             val res = service.getMatches(null)
-            print(res)
+            print(res.games.size)
             Assert.assertNotNull(res)
         }
     }

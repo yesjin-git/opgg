@@ -6,9 +6,9 @@ import javax.inject.Inject
  * Summoner related remote data source from api server
  */
 class SummonerRemoteDataSource @Inject constructor(
-    val client: SummonerService
+    private val client: SummonerService
 ) : SummonerDataSource {
-    override suspend fun getGenetory(): Genetory {
+    override suspend fun getGenetory(): Gene.Genetory {
         return client.getGenetory()
     }
 
@@ -18,6 +18,6 @@ class SummonerRemoteDataSource @Inject constructor(
 }
 
 interface SummonerDataSource {
-    suspend fun getGenetory(): Genetory
+    suspend fun getGenetory(): Gene.Genetory
     suspend fun getMatches(lastMatch: Int?): MatchData.Match
 }

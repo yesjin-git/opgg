@@ -8,7 +8,7 @@ import com.example.opgg.domain.StartUseCase
 import com.example.opgg.domain.UpdateListUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import com.example.opgg.data.summoner.Genetory
+import com.example.opgg.data.summoner.Gene
 import com.example.opgg.data.summoner.MatchData
 
 class MainViewModel @Inject constructor(
@@ -36,7 +36,7 @@ class MainViewModel @Inject constructor(
         val name: String,
         val level: String,
         val profileImageUrl: String,
-        val leagues: List<Genetory.League>
+        val leagues: List<Gene.League>
     )
 
     data class Analysis(

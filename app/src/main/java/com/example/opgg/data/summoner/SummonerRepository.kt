@@ -9,7 +9,7 @@ class DefaultSummonerRepository @Inject constructor(
     private val remoteSource: SummonerDataSource
 ) : SummonerRepository {
 
-    override suspend fun getGenetory(): Genetory {
+    override suspend fun getGenetory(): Gene.Genetory {
         return remoteSource.getGenetory()
     }
 
@@ -19,6 +19,6 @@ class DefaultSummonerRepository @Inject constructor(
 }
 
 interface SummonerRepository {
-    suspend fun getGenetory(): Genetory
+    suspend fun getGenetory(): Gene.Genetory
     suspend fun getMatches(lastMatch: Int?): MatchData.Match
 }
