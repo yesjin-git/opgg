@@ -31,7 +31,7 @@ class ApiTest {
 
 
     @Test
-    fun fetch_mtatch_data(){
+    fun fetch_match_data(){
         runBlocking {
             val res = service.getMatches(1571654692)
             print(res)
