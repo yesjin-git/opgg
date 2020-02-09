@@ -7,7 +7,6 @@ interface SummonerService {
     @GET("genetory")
     suspend fun getGenetory():Genetory
 
-
     @GET("genetory/matches")
     suspend fun getMatches(
         @Query("lastMatch") createDate:Int
