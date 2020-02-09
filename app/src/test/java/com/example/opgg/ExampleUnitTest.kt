@@ -27,21 +27,6 @@ class ExampleUnitTest {
         assertEquals(4, 2 + 2)
     }
 
-    @Test
-    fun fetch_summoner_data(){
-        val gson = GsonBuilder().create()
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
-
-        val service = retrofit.create(SummonerService::class.java)
-
-        runBlocking {
-            val res = service.getSummonerGenetory()
-            assertNotNull(res)
-        }
-    }
 }
 
 
