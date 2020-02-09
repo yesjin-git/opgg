@@ -1,6 +1,7 @@
 package com.example.opgg.di
 
 import com.example.opgg.common.BASE_URL
+import com.example.opgg.data.summoner.SummonerService
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -28,5 +29,11 @@ class ApiModule{
             .addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(BASE_URL)
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideSummonerClient(retrofit: Retrofit): SummonerService {
+        return retrofit.create(SummonerService::class.java)
     }
 }

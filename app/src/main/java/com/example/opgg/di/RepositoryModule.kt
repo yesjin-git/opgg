@@ -1,9 +1,6 @@
 package com.example.opgg.di
 
-import com.example.opgg.data.summoner.DefaultSummonerRepository
-import com.example.opgg.data.summoner.SummonerDataSource
-import com.example.opgg.data.summoner.SummonerRemoteDataSource
-import com.example.opgg.data.summoner.SummonerRepository
+import com.example.opgg.data.summoner.*
 import dagger.Component
 import dagger.Module
 import dagger.Provides
@@ -24,22 +21,10 @@ class RepositoryModule {
     @Singleton
     @Provides
     @Named("SummonerRemoteDataSource")
-    fun provideSummonerRemoteDataSource(): SummonerDataSource {
-        return SummonerRemoteDataSource()
+    fun provideSummonerRemoteDataSource(
+        client:SummonerService
+    ): SummonerDataSource {
+        return SummonerRemoteDataSource(client)
     }
 
 }
-///**
-// * Repositories provider
-// */
-//@Component
-//abstract class RepositoryModule{
-//
-//    @Singleton
-//    @Provides
-//
-//
-//    /**
-//     * Data source providers for repositories
-//     */
-//}

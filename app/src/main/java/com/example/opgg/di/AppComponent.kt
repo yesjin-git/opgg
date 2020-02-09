@@ -24,6 +24,7 @@ import kotlin.reflect.KClass
         RepositoryModule::class,
         ViewModelModule::class,
         MainBindModule::class,
+        ApiModule::class,
         AndroidSupportInjectionModule::class
 
     ]

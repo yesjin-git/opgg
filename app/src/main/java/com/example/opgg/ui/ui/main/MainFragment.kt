@@ -23,8 +23,8 @@ class MainFragment : DaggerFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("TAG", "$viewModel")
         viewModel = viewModelProvider(viewModelFactory)
+        Log.d("TAG", "$viewModel")
 
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
