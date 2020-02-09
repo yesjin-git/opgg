@@ -217,7 +217,7 @@ class MatchData {
         val assist: Int,
         val kdaString: String,
         val cs: Int,
-        val csPerMin: Int,
+        val csPerMin: Float,
         val contributionForKillRate: String,
         val goldEarned: Int,
         val totalDamageDealtToChampions: Int,

@@ -21,11 +21,22 @@ class ApiTest {
 
 
     @Test
-    fun fetch_summoner_data(){
+    fun fetch_genetory_data(){
         runBlocking {
             val res = service.getGenetory()
             print(res)
             Assert.assertNotNull(res)
         }
     }
+
+
+    @Test
+    fun fetch_mtatch_data(){
+        runBlocking {
+            val res = service.getMatches(1571654692)
+            print(res)
+            Assert.assertNotNull(res)
+        }
+    }
+
 }
