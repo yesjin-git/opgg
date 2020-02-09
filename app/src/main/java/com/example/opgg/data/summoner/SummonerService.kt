@@ -5,6 +5,6 @@ import retrofit2.http.Query
 
 interface SummonerService {
     @GET("genetory")
-    suspend fun getSummonerGenetory():SummonerInfo
+    suspend fun getSummonerGenetory():Genetory
 
 }
