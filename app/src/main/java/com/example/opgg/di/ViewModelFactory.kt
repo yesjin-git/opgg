@@ -26,4 +26,4 @@ class ViewModelFactory @Inject constructor(
 
 inline fun <reified VM : ViewModel> Fragment.viewModelProvider(
     provider: ViewModelProvider.Factory
-) = ViewModelProviders.of(this, provider).get(VM::class.java)
+) = ViewModelProvider(this, provider).get(VM::class.java)
