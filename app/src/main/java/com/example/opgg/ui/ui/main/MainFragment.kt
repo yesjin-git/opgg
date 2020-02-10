@@ -1,11 +1,10 @@
 package com.example.opgg.ui.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.opgg.R
+import com.example.opgg.databinding.MainFragmentBinding
 import com.example.opgg.di.ViewModelFactory
 import com.example.opgg.di.viewModelProvider
 import dagger.android.support.DaggerFragment
@@ -22,8 +21,11 @@ class MainFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View {
         viewModel = viewModelProvider(viewModelFactory)
-        Log.d("TAG", "$viewModel")
+        val binding = MainFragmentBinding.inflate(layoutInflater).apply {
+            lifecycleOwner = viewLifecycleOwner
+            vm = viewModel
+        }
 
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return binding.root
     }
 }

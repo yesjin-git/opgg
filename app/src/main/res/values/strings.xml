@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OPGG</string>
+    <string name="update_history">전적갱신</string>
 </resources>
