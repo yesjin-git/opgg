@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">OPGG</string>
     <string name="update_history">전적갱신</string>
+
+    <string name="lp">%1$s LP</string>
+    <string name="button">button</string>
 </resources>

@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.example.opgg.R
 import com.example.opgg.databinding.MainFragmentBinding
 import com.example.opgg.di.ViewModelFactory
 import com.example.opgg.di.viewModelProvider
@@ -57,4 +59,17 @@ fun glideSrc(iv: ImageView, url: String?) {
     Glide.with(iv)
         .load(url)
         .into(iv)
+}
+
+@Suppress("unused")
+@BindingAdapter(value = ["android:win", "android:lose"])
+fun setWinRecord(tv: TextView, win: Int?, lose: Int?) {
+    if (win != null && lose != null) {
+        val percentage = if (win == 0 && lose == 0) {
+            0
+        } else {
+            win * 100 / (win + lose)
+        }
+        tv.text = "${win}승 ${lose}패 (${percentage}%)"
+    }
 }
