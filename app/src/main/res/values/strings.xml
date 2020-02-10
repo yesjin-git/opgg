@@ -4,4 +4,6 @@
 
     <string name="lp">%1$s LP</string>
     <string name="button">button</string>
+    <string name="win_record">%1$s승 %2$s패 (%3$s%%)</string>
+
 </resources>

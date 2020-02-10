@@ -70,6 +70,11 @@ fun setWinRecord(tv: TextView, win: Int?, lose: Int?) {
         } else {
             win * 100 / (win + lose)
         }
-        tv.text = "${win}승 ${lose}패 (${percentage}%)"
+        tv.text = tv.context.getString(
+            R.string.win_record,
+            win.toString(),
+            lose.toString(),
+            percentage.toString()
+        )
     }
 }
