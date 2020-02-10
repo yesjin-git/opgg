@@ -10,10 +10,13 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.opgg.R
+import com.example.opgg.common.calcWinRate
+import com.example.opgg.data.summoner.MatchData
 import com.example.opgg.databinding.MainFragmentBinding
 import com.example.opgg.di.ViewModelFactory
 import com.example.opgg.di.viewModelProvider
 import dagger.android.support.DaggerFragment
+import java.lang.IllegalStateException
 import javax.inject.Inject
 
 class MainFragment : DaggerFragment() {
@@ -65,11 +68,7 @@ fun glideSrc(iv: ImageView, url: String?) {
 @BindingAdapter(value = ["android:win", "android:lose"])
 fun setWinRecord(tv: TextView, win: Int?, lose: Int?) {
     if (win != null && lose != null) {
-        val percentage = if (win == 0 && lose == 0) {
-            0
-        } else {
-            win * 100 / (win + lose)
-        }
+        val percentage = calcWinRate(win, lose)
         tv.text = tv.context.getString(
             R.string.win_record,
             win.toString(),
@@ -78,3 +77,27 @@ fun setWinRecord(tv: TextView, win: Int?, lose: Int?) {
         )
     }
 }
+
+
+@Suppress("unused")
+@BindingAdapter("android:position")
+fun setPosition(iv: ImageView, positions: List<MatchData.Position>?) {
+    val max = positions?.maxBy {
+        calcWinRate(it.wins, it.losses)
+    }
+    max?.positionName?.also {
+        val image = when (it) {
+            "Bottom" -> R.drawable.icon_lol_bot
+            "Jungle" -> R.drawable.icon_lol_jng
+            "Top" -> R.drawable.icon_lol_top
+            "Supporter" -> R.drawable.icon_lol_sup
+            "Mid" -> R.drawable.icon_lol_mid
+            else -> throw IllegalStateException("Invalid position name $it")
+        }
+
+        Glide.with(iv)
+            .load(image)
+            .into(iv)
+    }
+}
+

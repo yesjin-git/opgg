@@ -97,6 +97,162 @@
             android:layout_height="90dp"
             app:layout_constraintTop_toBottomOf="@id/v_divider">
 
+            <TextView
+                android:id="@+id/tv_analysis_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/grey_98"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp"
+                tools:text="최근 20게임 분석" />
+
+            <TextView
+                android:id="@+id/tv_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="@{vm.analysis.winAndLose}"
+                android:textColor="@color/grey_98"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@id/tv_analysis_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_analysis_title"
+                tools:ignore="SmallSp"
+                tools:text="11승 9패" />
+
+            <TextView
+                android:id="@+id/tv_kda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@{vm.analysis.kda}"
+                android:textColor="@color/black_33"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv_analysis_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_record"
+                tools:text="5.9 / 5.8 / 14.1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@{vm.analysis.kdaSummary}"
+                android:textColor="@color/black_1e"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@id/tv_analysis_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_kda"
+                tools:ignore="SmallSp"
+                tools:text="3.65:1 (66%)" />
+
+            <TextView
+                android:id="@+id/tv_position"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/position"
+                android:textColor="@color/grey_98"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+
+            <ImageView
+                android:id="@+id/iv_position"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:position="@{vm.analysis.positions}"
+                app:layout_constraintEnd_toEndOf="@id/tv_position"
+                app:layout_constraintStart_toStartOf="@id/tv_position"
+                app:layout_constraintTop_toBottomOf="@id/tv_position" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black_1e"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@id/iv_position"
+                app:layout_constraintStart_toStartOf="@id/iv_position"
+                app:layout_constraintTop_toBottomOf="@id/iv_position"
+                tools:ignore="SmallSp"
+                tools:text="42%" />
+
+            <TextView
+                android:id="@+id/tv_most_win_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="110dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/grey_98"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toStartOf="@id/tv_position"
+                app:layout_constraintTop_toTopOf="@id/tv_position"
+                tools:text="모스트 승률" />
+
+            <ImageView
+                android:id="@+id/iv_most"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/tv_most_win_rate"
+                app:layout_constraintTop_toBottomOf="@id/tv_most_win_rate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black_1e"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@id/iv_most"
+                app:layout_constraintStart_toStartOf="@id/iv_most"
+                app:layout_constraintTop_toBottomOf="@id/iv_most"
+                tools:ignore="SmallSp"
+                tools:text="42%" />
+
+            <ImageView
+                android:id="@+id/iv_second"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@id/tv_most_win_rate"
+                app:layout_constraintTop_toBottomOf="@id/tv_most_win_rate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:position="@{vm.analysis.positions}"
+                android:textColor="@color/black_1e"
+                android:textSize="10sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@id/iv_second"
+                app:layout_constraintStart_toStartOf="@id/iv_second"
+                app:layout_constraintTop_toBottomOf="@id/iv_second"
+                tools:ignore="SmallSp"
+                tools:text="42%" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

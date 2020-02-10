@@ -21,8 +21,17 @@ fun timePassed(timestamp: Long): String {
             "${passedTime / (60 * 60)}시간 전"
         }
         else -> {
-            "${passedTime  / (60 * 60 * 24)}일 전"
+            "${passedTime / (60 * 60 * 24)}일 전"
         }
     }
+}
+
+fun calcWinRate(win: Int, lose: Int): Int {
+    return if (win == 0 && lose == 0) {
+        0
+    } else {
+        win * 100 / (win + lose)
+    }
+
 }
 
