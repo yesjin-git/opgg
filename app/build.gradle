@@ -23,11 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding{
+    dataBinding {
         enabled = true
         enabledForTests = true
     }
-    compileOptions{
+    compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
@@ -46,6 +46,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
 
     //Dependency injection libraries
     implementation 'com.google.dagger:dagger:2.26'
