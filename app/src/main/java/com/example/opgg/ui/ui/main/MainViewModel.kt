@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.example.opgg.data.summoner.Gene
 import com.example.opgg.data.summoner.MatchData
+import com.example.opgg.domain.Result
 
 class MainViewModel @Inject constructor(
     val startUseCase: StartUseCase,
@@ -27,7 +28,19 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            startUseCase()
+            startUseCase().let {
+                when (it) {
+                    is Result.Success -> {
+                        _header.value = it.data.header
+                        _analysis.value = it.data.analysis
+                        _history.value = it.data.history
+                    }
+                    is Result.Error -> {
+                        //exception will be handled by uncaught error handler
+                        throw it.exception
+                    }
+                }
+            }
         }
     }
 
