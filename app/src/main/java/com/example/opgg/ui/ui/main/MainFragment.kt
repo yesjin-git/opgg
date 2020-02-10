@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.example.opgg.databinding.MainFragmentBinding
 import com.example.opgg.di.ViewModelFactory
 import com.example.opgg.di.viewModelProvider
@@ -28,4 +31,26 @@ class MainFragment : DaggerFragment() {
 
         return binding.root
     }
+
+    @Suppress("unused")
+    private fun gaga(){
+
+    }
+}
+
+@Suppress("unused")
+@BindingAdapter("android:glideCircleSrc")
+fun glideCircleSrc(iv: ImageView, url: String?) {
+    Glide.with(iv)
+        .load(url)
+        .circleCrop()
+        .into(iv)
+}
+
+@Suppress("unused")
+@BindingAdapter("android:glideSrc")
+fun glideSrc(iv: ImageView, url: String?) {
+    Glide.with(iv)
+        .load(url)
+        .into(iv)
 }
