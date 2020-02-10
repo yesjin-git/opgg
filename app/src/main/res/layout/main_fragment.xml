@@ -110,7 +110,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp"
-                tools:text="최근 20게임 분석" />
+                android:text="@string/recent_20_game_analysis" />
 
             <TextView
                 android:id="@+id/tv_record"

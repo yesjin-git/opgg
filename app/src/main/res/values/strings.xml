@@ -7,5 +7,6 @@
     <string name="button">button</string>
     <string name="win_record">%1$s승 %2$s패 (%3$s%%)</string>
     <string name="position">포지션</string>
+    <string name="recent_20_game_analysis">최근 20게임 분석</string>
 
 </resources>
