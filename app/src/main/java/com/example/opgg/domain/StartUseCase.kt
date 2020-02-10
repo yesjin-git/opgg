@@ -5,7 +5,7 @@ import com.example.opgg.common.timePassed
 import com.example.opgg.data.summoner.Gene
 import com.example.opgg.data.summoner.MatchData
 import com.example.opgg.data.summoner.SummonerRepository
-import com.example.opgg.ui.ui.main.MainViewModel
+import com.example.opgg.ui.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext

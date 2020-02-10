@@ -3,8 +3,8 @@ package com.example.opgg.di
 import androidx.lifecycle.ViewModel
 import com.example.opgg.ui.MainActivity
 import com.example.opgg.ui.MainApplication
-import com.example.opgg.ui.ui.main.MainFragment
-import com.example.opgg.ui.ui.main.MainViewModel
+import com.example.opgg.ui.MainFragment
+import com.example.opgg.ui.MainViewModel
 import dagger.Binds
 import dagger.Component
 import dagger.MapKey

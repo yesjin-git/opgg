@@ -2,6 +2,9 @@
 <layout>
 
     <data>
+        <variable
+            name="league"
+            type="com.example.opgg.data.summoner.Gene.League" />
 
     </data>
 

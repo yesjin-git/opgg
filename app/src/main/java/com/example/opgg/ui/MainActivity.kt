@@ -5,7 +5,6 @@ import android.util.Log
 import android.widget.Toast
 import com.example.opgg.BuildConfig
 import com.example.opgg.R
-import com.example.opgg.ui.ui.main.MainFragment
 import dagger.android.support.DaggerAppCompatActivity
 import retrofit2.HttpException
 import java.net.UnknownHostException
