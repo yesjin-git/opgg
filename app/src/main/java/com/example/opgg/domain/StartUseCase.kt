@@ -14,7 +14,7 @@ import kotlin.Exception
 import kotlin.math.roundToInt
 
 class StartUseCase @Inject constructor(
-    val repository: SummonerRepository
+    private val repository: SummonerRepository
 ) {
     suspend operator fun invoke(): Result<Entity> {
         return try {

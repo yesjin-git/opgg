@@ -243,7 +243,6 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif"
                 android:gravity="center_horizontal"
-                android:position="@{vm.analysis.positions}"
                 android:textColor="@color/black_1e"
                 android:textSize="10sp"
                 android:textStyle="normal"

@@ -35,7 +35,7 @@ class MainFragment : DaggerFragment() {
             vm = viewModel
         }
 
-        val leagueAdapter = LeagesAdapter()
+        val leagueAdapter = LeaguesAdapter()
         viewModel.header.observe(viewLifecycleOwner, Observer {
             leagueAdapter.updateData(it.leagues)
             leagueAdapter.notifyDataSetChanged()

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.opgg.data.summoner.Gene
 import com.example.opgg.databinding.MainLeagueItemBinding
 
-class LeagesAdapter : RecyclerView.Adapter<LeagesAdapter.ViewHolder>() {
+class LeaguesAdapter : RecyclerView.Adapter<LeaguesAdapter.ViewHolder>() {
 
     private var data: List<Gene.League>? = null
 
