@@ -20,6 +20,7 @@
             android:layout_height="72dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="36dp"
+            android:glideCircleSrc="@{vm.header.profileImageUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +28,9 @@
             android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:fontFamily="sans-serif"
+            android:text="@{vm.header.name}"
             android:textColor="#1e2022"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -57,12 +60,14 @@
             android:fontFamily="sans-serif"
             android:paddingStart="6dp"
             android:paddingEnd="6dp"
-            android:textColor="#ffffff"
+            android:text="@{vm.header.level}"
+            android:textColor="@color/white_ff"
             android:textSize="12sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             app:layout_constraintEnd_toEndOf="@id/iv_user_profile"
             app:layout_constraintStart_toStartOf="@id/iv_user_profile"
+            app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
             tools:text="247" />
 
         <androidx.recyclerview.widget.RecyclerView
