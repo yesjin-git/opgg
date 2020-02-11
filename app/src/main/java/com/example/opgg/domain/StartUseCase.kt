@@ -1,7 +1,6 @@
 package com.example.opgg.domain
 
 import com.example.opgg.common.roundUp
-import com.example.opgg.common.timePassed
 import com.example.opgg.data.summoner.Gene
 import com.example.opgg.data.summoner.MatchData
 import com.example.opgg.data.summoner.SummonerRepository
@@ -35,9 +34,12 @@ class StartUseCase @Inject constructor(
                 val history = match.games.map {
                     MainViewModel.History(
                         it.isWin,
+                        calcGameLength(it.gameLength),
                         it.champion.imageUrl,
-                        "${it.stats.general.kill} / ${it.stats.general.deaths} / ${it.stats.general.assist}",
-                        "킬관여 ${it.stats.general.contributionForKillRate}",
+                        it.stats.general.kill,
+                        it.stats.general.deaths,
+                        it.stats.general.assist,
+                        it.stats.general.contributionForKillRate,
                         it.stats.general.opScoreBadge,
                         it.items.map { item -> item.imageUrl },
                         it.gameType,
@@ -84,6 +86,31 @@ class StartUseCase @Inject constructor(
             match.positions
         )
     }
+
+    private fun calcGameLength(sec: Int): String {
+        val min = sec / 60
+        val remainSec = sec % 60
+        return "$min:$remainSec"
+    }
+
+    private fun timePassed(timestamp: Long): String {
+        val passedTime = System.currentTimeMillis() / 1000 - timestamp
+        return when {
+            passedTime < 60 -> {
+                "1분 전"
+            }
+            passedTime < 60 * 60 -> {
+                "${passedTime / 60}분 전"
+            }
+            passedTime < 60 * 60 * 24 -> {
+                "${passedTime / (60 * 60)}시간 전"
+            }
+            else -> {
+                "${passedTime / (60 * 60 * 24)}일 전"
+            }
+        }
+    }
+
 
     data class Entity(
         val header: MainViewModel.Header,

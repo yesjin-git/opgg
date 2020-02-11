@@ -9,4 +9,9 @@
     <string name="position">포지션</string>
     <string name="recent_20_game_analysis">최근 20게임 분석</string>
 
+    <string name="kda_hisory"><![CDATA[%1$s / <font color=#e84057>%2$s</font> / %3$s]]></string>
+    <string name="assist_rate">킬관여 %1$s%%</string>
+    <string name="before_min">%1$s분 전</string>
+
+
 </resources>
