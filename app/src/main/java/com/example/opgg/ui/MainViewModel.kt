@@ -70,6 +70,7 @@ class MainViewModel @Inject constructor(
         val assist: Int,
         val contributionForKillRate: String,
         val itemUrls: List<String>,
+        val spellUrls: List<String>,
         val gameType: String,
         val timePassed: String
     )
