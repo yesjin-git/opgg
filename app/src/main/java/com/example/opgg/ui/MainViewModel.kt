@@ -69,7 +69,6 @@ class MainViewModel @Inject constructor(
         val death: Int,
         val assist: Int,
         val contributionForKillRate: String,
-        val badge: String,
         val itemUrls: List<String>,
         val gameType: String,
         val timePassed: String
