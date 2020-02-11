@@ -120,6 +120,7 @@
             android:id="@+id/tv_kda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
             android:fontFamily="sans-serif"
             android:textColor="@color/black_1e"
