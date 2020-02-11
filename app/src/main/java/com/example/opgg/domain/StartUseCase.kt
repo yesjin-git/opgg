@@ -36,6 +36,7 @@ class StartUseCase @Inject constructor(
                         if (it.isWin) "승" else "패",
                         calcGameLength(it.gameLength),
                         it.champion.imageUrl,
+                        classifyOpBadge(it.stats.general.opScoreBadge),
                         it.stats.general.kill,
                         it.stats.general.deaths,
                         it.stats.general.assist,
@@ -108,6 +109,14 @@ class StartUseCase @Inject constructor(
             else -> {
                 "${passedTime / (60 * 60 * 24)}일 전"
             }
+        }
+    }
+
+    private fun classifyOpBadge(opBadgeString: String): MainViewModel.BadgeType {
+        return when (opBadgeString) {
+            "ACE" -> MainViewModel.BadgeType.ACE
+            "MVP" -> MainViewModel.BadgeType.MVP
+            else -> MainViewModel.BadgeType.NONE
         }
     }
 

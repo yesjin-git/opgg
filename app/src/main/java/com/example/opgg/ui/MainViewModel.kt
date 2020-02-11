@@ -64,6 +64,7 @@ class MainViewModel @Inject constructor(
         val result: String,
         val gameLength: String,
         val championImageUrl: String,
+        val opBadge: BadgeType,
         val kill: Int,
         val death: Int,
         val assist: Int,
@@ -73,4 +74,8 @@ class MainViewModel @Inject constructor(
         val gameType: String,
         val timePassed: String
     )
+
+    enum class BadgeType {
+        MVP, ACE, NONE
+    }
 }
