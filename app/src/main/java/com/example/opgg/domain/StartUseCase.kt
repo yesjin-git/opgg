@@ -41,8 +41,8 @@ class StartUseCase @Inject constructor(
                         it.stats.general.deaths,
                         it.stats.general.assist,
                         it.stats.general.contributionForKillRate,
-                        it.spells.map { spell -> spell.imageUrl },
                         it.items.map { item -> item.imageUrl },
+                        it.spells.map { spell -> spell.imageUrl },
                         it.gameType,
                         timePassed(it.createDate)
                     )
