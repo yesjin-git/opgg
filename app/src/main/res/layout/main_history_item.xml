@@ -1,22 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="104dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/league_item_background">
+        android:background="@drawable/league_item_background"
+        app:layout_constraintBottom_toTopOf="@+id/v_highlight_divider"
+        app:layout_constraintTop_toTopOf="@+id/v_highlight_divider">
+
 
         <View
+            android:id="@+id/v_highlight"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:background="@color/blue_53"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_win_lose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white_ff"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/v_highlight"
+            app:layout_constraintStart_toStartOf="@id/v_highlight"
+            app:layout_constraintTop_toTopOf="@id/v_highlight"
+            tools:text="무" />
+
+        <View
+            android:id="@+id/v_highlight_divider"
+            android:layout_width="16dp"
+            android:layout_height="1dp"
+            android:background="@color/white_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_win_lose_count"
+            app:layout_constraintEnd_toEndOf="@id/v_highlight"
+            app:layout_constraintStart_toStartOf="@id/v_highlight"
+            app:layout_constraintTop_toBottomOf="@id/tv_win_lose" />
+
+        <TextView
+            android:id="@+id/tv_win_lose_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/white_ff"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@id/v_highlight"
+            app:layout_constraintEnd_toEndOf="@id/v_highlight"
+            app:layout_constraintStart_toStartOf="@id/v_highlight"
+            tools:text="38:45" />
+
+        <ImageView
+            android:id="@+id/iv_champion"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@id/v_highlight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="27dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textColor="@color/white_ff"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/iv_champion"
+            app:layout_constraintStart_toStartOf="@id/iv_champion"
+            app:layout_constraintTop_toTopOf="@id/iv_champion"
+            tools:background="@drawable/mvp_background"
+            tools:ignore="SmallSp"
+            tools:text="MVP" />
+
+        <ImageView
+            android:id="@+id/iv_spell_1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/iv_champion"
+            app:layout_constraintTop_toTopOf="@id/iv_champion" />
+
+        <ImageView
+            android:id="@+id/iv_spell_2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/iv_spell_1"
+            app:layout_constraintTop_toTopOf="@id/iv_spell_1" />
+
+        <ImageView
+            android:id="@+id/iv_spell_3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@id/iv_spell_1"
+            app:layout_constraintTop_toBottomOf="@id/iv_spell_1" />
+
+        <ImageView
+            android:id="@+id/iv_rune"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/iv_spell_3"
+            app:layout_constraintTop_toTopOf="@id/iv_spell_3" />
+
+        <TextView
+            android:id="@+id/tv_kda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/black_1e"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/iv_spell_2"
+            app:layout_constraintTop_toTopOf="@id/iv_champion"
+            tools:text="88 / 88 / 88" />
+
+        <TextView
+            android:id="@+id/tv_assist_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/grey_52"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/tv_kda"
+            app:layout_constraintTop_toBottomOf="@id/tv_kda"
+            tools:text="킬관여 13%" />
+
+        <ImageView
+            android:id="@+id/iv_item_1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/item_background"
+            app:layout_constraintStart_toStartOf="@id/iv_champion"
+            app:layout_constraintTop_toBottomOf="@id/iv_champion" />
+
+        <ImageView
+            android:id="@+id/iv_item_2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/item_background"
+            app:layout_constraintStart_toEndOf="@id/iv_item_1"
+            app:layout_constraintTop_toTopOf="@id/iv_item_1" />
+
+        <ImageView
+            android:id="@+id/iv_item_3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/item_background"
+            app:layout_constraintStart_toEndOf="@id/iv_item_2"
+            app:layout_constraintTop_toTopOf="@id/iv_item_1" />
+
+        <ImageView
+            android:id="@+id/iv_item_4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/item_background"
+            app:layout_constraintStart_toEndOf="@id/iv_item_3"
+            app:layout_constraintTop_toTopOf="@id/iv_item_1" />
+
+        <ImageView
+            android:id="@+id/iv_item_5"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/item_background"
+            app:layout_constraintStart_toEndOf="@id/iv_item_4"
+            app:layout_constraintTop_toTopOf="@id/iv_item_1" />
+
+        <ImageView
+            android:id="@+id/iv_ward"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/iv_item_5"
+            app:layout_constraintTop_toTopOf="@id/iv_item_1" />
+
+        <TextView
+            android:id="@+id/tv_match_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:textColor="@color/grey_98"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="솔랭" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:gravity="end"
+            android:textColor="@color/grey_98"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@id/tv_match_type"
+            app:layout_constraintTop_toBottomOf="@id/tv_match_type"
+            tools:text="2분 전" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

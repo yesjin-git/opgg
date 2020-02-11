@@ -10,4 +10,7 @@
     <color name="grey_52">#52595f</color>
     <color name="grey_98">#98a0a7</color>
     <color name="black_33">#33383c</color>
+    <color name="white_66">#66ffffff</color>
+    <color name="yellow_ff">#ffa905</color>
+    <color name="pirple_8b">#8b68ff</color>
 </resources>
