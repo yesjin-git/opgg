@@ -33,7 +33,7 @@ class StartUseCase @Inject constructor(
                 val analysis = analyseRecentMatches(match)
                 val history = match.games.map {
                     MainViewModel.History(
-                        it.isWin,
+                        if (it.isWin) "승" else "패",
                         calcGameLength(it.gameLength),
                         it.champion.imageUrl,
                         it.stats.general.kill,

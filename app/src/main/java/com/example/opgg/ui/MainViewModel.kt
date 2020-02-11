@@ -61,7 +61,7 @@ class MainViewModel @Inject constructor(
     )
 
     data class History(
-        val isWin: Boolean,
+        val result: String,
         val gameLength: String,
         val championImageUrl: String,
         val kill: Int,
